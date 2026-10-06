@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paquetes Jireh | Haz tu propio cambio de aceite</title>
+  <meta name="description" content="Paquetes Jireh: productos para que hagas tu propio cambio de aceite. El mantenimiento que tu auto necesita, sin salir de casa. Cotiza por WhatsApp." />
+  <meta property="og:title" content="Paquetes Jireh | Haz tu propio cambio de aceite" />
+  <meta property="og:description" content="Productos y paquetes para realizar el mantenimiento de tu vehículo desde casa. Líneas Económica, VIP (Motul) y Platinum (Liqui Moly)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/hero.jpg" />
+  <link rel="icon" href="img/logo.png" />
+
+  <style>
+    :root{
+      --azul:#0b5fa5;
+      --gris:#f3f4f6;
+      --gris-osc:#2b2f33;
+      --verde-osc:#0f6b4a;
+      --verde-menta:#9fe6c9;
+      --negro:#0b0b0b;
+      --blanco:#ffffff;
+      --max-width:1100px;
+      --card-radius:12px;
+      --shadow: 0 6px 18px rgba(11,15,20,0.12);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--negro);
+      background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,0.86);
+      border-bottom:1px solid rgba(11,15,20,0.04);
+      box-shadow:0 2px 8px rgba(11,15,20,0.03);
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:48px;width:auto;display:block}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--negro);text-decoration:none;font-weight:600;font-size:14px}
+    .cta-whatsapp{
+      background:linear-gradient(90deg,var(--verde-menta),var(--verde-osc));
+      color:var(--blanco);
+      padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;
+      display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+      box-shadow:var(--shadow);
+    }
+
+    /* Hamburger */
+    .hamburger{display:none;background:none;border:0;padding:8px;border-radius:8px}
+    .hamburger .bar{width:22px;height:2px;background:var(--negro);display:block;margin:4px 0;transition:all .2s}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0;
+      background:linear-gradient(180deg, rgba(11,95,165,0.03), transparent 40%);
+    }
+    .hero-left h1{font-size:28px;margin:0 0 12px;color:var(--negro);line-height:1.05}
+    .hero-left h2{font-size:18px;margin:0 0 16px;color:var(--azul);font-weight:800}
+    .hero-left p{margin:0 0 18px;color:#334155}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-outline{padding:10px 14px;border-radius:10px;border:1px solid rgba(11,15,20,0.08);background:transparent;color:var(--negro);text-decoration:none;font-weight:700}
+    .hero-right{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#111}
+    .hero-right img{width:100%;height:100%;object-fit:cover;display:block;min-height:260px}
+
+    /* Sections */
+    section{padding:36px 0;border-bottom:1px solid rgba(11,15,20,0.03)}
+    section .section-header{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
+    section h3{margin:0;font-size:18px;color:var(--azul)}
+    section p.lead{margin:6px 0 0;color:#475569}
+
+    /* How it works */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{background:var(--blanco);padding:18px;border-radius:12px;box-shadow:var(--shadow);text-align:center}
+    .step .num{width:48px;height:48px;border-radius:50%;display:inline-grid;place-items:center;background:var(--azul);color:#fff;font-weight:800;margin-bottom:10px}
+
+    /* Packages - FLEX layout so last row centers automatically and cards equal height */
+    .cards{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      justify-content:center; /* centra las tarjetas en cada fila */
+      align-items:stretch; /* hace que las tarjetas estiren igual altura en la fila */
+      padding:6px 0;
+    }
+    .card{
+      background:var(--blanco);
+      padding:16px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      width:320px; /* ancho fijo para controlar filas */
+      max-width:100%;
+      /* ensure equal height behavior */
+      align-self:stretch;
+      min-height:420px; /* altura mínima para consistencia */
+      box-sizing:border-box;
+    }
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px;background:#e6eef8;flex:0 0 140px}
+    .card h4{margin:0;font-size:16px;color:var(--gris-osc)}
+    .card .desc{color:#475569;font-size:14px}
+    .card .list{display:flex;flex-direction:column;gap:6px;font-size:14px;color:#334155}
+    .card .price{font-weight:800;color:var(--azul)}
+    .card .card-actions{margin-top:auto;display:flex;gap:8px;align-items:center}
+
+    /* Lines */
+    .lines{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .line{padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#f7fdf8);box-shadow:var(--shadow)}
+    .line h4{margin:0 0 8px}
+
+    /* Why Jireh */
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .benefit{padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fbff);box-shadow:var(--shadow)}
+
+    /* Info comercial */
+    .info-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+    .info-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .info-table th, .info-table td{padding:10px;border-bottom:1px solid rgba(11,15,20,0.04);text-align:left;font-size:14px}
+    .info-aside{padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#f7fff7);box-shadow:var(--shadow)}
+
+    /* Tutorial section */
+    .tutorial{
+      display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;
+    }
+    .tutorial .box{padding:18px;border-radius:12px;background:linear-gradient(180deg,#fff,#f7fbff);box-shadow:var(--shadow)}
+    .tutorial .placeholder{height:220px;border-radius:10px;background:linear-gradient(180deg,#eef6ff,#f8fbff);display:grid;place-items:center;color:var(--azul);font-weight:800}
+
+    /* FAQ */
+    .faq{max-width:900px}
+    .accordion{border-radius:10px;overflow:hidden}
+    .acc-item{border-bottom:1px solid rgba(11,15,20,0.04)}
+    .acc-btn{width:100%;text-align:left;padding:14px;background:transparent;border:0;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+    .acc-panel{padding:0 14px 14px 14px;color:#334155;display:none}
+
+    /* Contact */
+    .contact-cta{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px;border-radius:12px;background:linear-gradient(90deg,#e8f7f1,#f7fbff);box-shadow:var(--shadow)}
+    .contact-cta .left{max-width:70%}
+
+    /* Footer */
+    footer{padding:28px 0;background:linear-gradient(180deg,#0b5fa5 0%, #083f6b 100%);color:#fff}
+    footer .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+    footer a{color:#fff;text-decoration:none}
+    .footer-nav{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Floating WhatsApp */
+    .whatsapp-float{
+      position:fixed;right:18px;bottom:18px;z-index:80;
+      background:linear-gradient(90deg,var(--verde-menta),var(--verde-osc));
+      color:#fff;padding:14px;border-radius:999px;box-shadow:0 10px 30px rgba(15,107,74,0.28);
+      display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 320px}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .info-grid{grid-template-columns:1fr}
+      .lines{grid-template-columns:repeat(2,1fr)}
+      .tutorial{grid-template-columns:1fr}
+      /* On medium screens, allow two cards per row */
+      .card{width:46%;min-width:260px;min-height:420px}
+    }
+    @media (max-width:720px){
+      nav{display:none}
+      .hamburger{display:block}
+      .hero{grid-template-columns:1fr;gap:18px}
+      .cards{gap:14px}
+      .card{width:100%;min-height:0}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .lines{grid-template-columns:1fr}
+      .benefits{grid-template-columns:1fr}
+      .header-inner{padding:10px 0}
+    }
+
+    /* Fallback image style */
+    .img-fallback{
+      display:grid;place-items:center;background:linear-gradient(180deg,#eef6ff,#f8fbff);color:#0b5fa5;height:140px;border-radius:8px;font-weight:800
+    }
+
+    /* small helpers */
+    .muted{color:#64748b;font-size:14px}
+    .tag{display:inline-block;padding:6px 8px;border-radius:999px;background:#eef2ff;color:var(--azul);font-weight:700;font-size:13px}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#inicio"><img src="img/logo.png" alt="Logo Paquetes Jireh" onerror="this.style.display='none'"></a>
+        <div>
+          <div style="font-weight:800;color:var(--azul)">PAQUETES JIREH</div>
+          <div style="font-size:12px;color:#64748b">Haz tu propio cambio de aceite</div>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#lineas">Líneas</a>
+        <a href="#por-que-jireh">¿Por qué Jireh?</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta-whatsapp" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR POR WHATSAPP</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Abrir menú" onclick="toggleMobileMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none;background:rgba(255,255,255,0.98);border-top:1px solid rgba(11,15,20,0.03);padding:12px;">
+      <div class="container" style="display:flex;flex-direction:column;gap:8px">
+        <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+        <a href="#como-funciona" onclick="closeMobileMenu()">Cómo funciona</a>
+        <a href="#paquetes" onclick="closeMobileMenu()">Paquetes</a>
+        <a href="#lineas" onclick="closeMobileMenu()">Líneas</a>
+        <a href="#por-que-jireh" onclick="closeMobileMenu()">¿Por qué Jireh?</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+        <a class="cta-whatsapp" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR POR WHATSAPP</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <h1 id="hero-title">EL MANTENIMIENTO QUE TU AUTO NECESITA, SIN SALIR DE CASA</h1>
+          <h2>HAZ TU PROPIO CAMBIO DE ACEITE</h2>
+          <p class="lead">Paquetes Jireh ofrece los productos necesarios para que realices el mantenimiento y cambio de aceite de tu vehículo por tu cuenta. Entregamos a domicilio y brindamos asesoría personalizada para que mantengas tu auto al 100%.</p>
+
+          <div class="hero-cta">
+            <a class="cta-whatsapp" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR POR WHATSAPP</a>
+            <a class="btn-outline" href="#paquetes">VER PAQUETES</a>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="false">
+          <img src="img/hero.jpg" alt="Aceite siendo vertido en motor - Paquetes Jireh" onerror="this.style.display='none'">
+          <div style="padding:12px;background:linear-gradient(180deg,rgba(0,0,0,0.35),transparent);position:absolute;left:12px;bottom:12px;border-radius:8px;color:#fff;font-weight:700">Entrega a domicilio · Productos de calidad · Asesoría personalizada</div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="como-funciona" aria-labelledby="como-title">
+        <div class="section-header">
+          <div>
+            <h3 id="como-title">¿CÓMO FUNCIONA?</h3>
+            <p class="muted">Proceso sencillo para elegir y recibir tu paquete.</p>
+          </div>
+        </div>
+
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <div class="num">01</div>
+            <div style="font-weight:800">ELIGE TU PAQUETE</div>
+            <div class="muted" style="margin-top:8px">Selecciona el paquete que cubra lo que tu vehículo necesita.</div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="num">02</div>
+            <div style="font-weight:800">ELIGE TU LÍNEA</div>
+            <div class="muted" style="margin-top:8px">Línea Económica, VIP (Motul) o Platinum (Liqui Moly).</div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="num">03</div>
+            <div style="font-weight:800">COTIZA POR WHATSAPP</div>
+            <div class="muted" style="margin-top:8px">Envíanos marca, modelo, año y motor para cotización personalizada.</div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="num">04</div>
+            <div style="font-weight:800">RECIBE TU PEDIDO</div>
+            <div class="muted" style="margin-top:8px">Entrega a domicilio con productos listos para tu mantenimiento.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGES -->
+      <section id="paquetes" aria-labelledby="paquetes-title">
+        <div class="section-header">
+          <div>
+            <h3 id="paquetes-title">NUESTROS PAQUETES</h3>
+            <p class="muted">Cada paquete incluye los productos listados. Cotización personalizada según vehículo.</p>
+          </div>
+        </div>
+
+        <div class="cards" role="list">
+          <!-- BÁSICO -->
+          <article class="card" role="listitem" aria-labelledby="pkg-basico">
+            <img src="img/basico.jpg" alt="Paquete Básico - Aceite y filtro" onerror="this.style.display='none'">
+            <h4 id="pkg-basico">BÁSICO</h4>
+            <div class="desc">Ideal para mantenimiento regular. Incluye lo esencial para un cambio de aceite.</div>
+            <div class="list">
+              <div><strong>Productos incluidos:</strong> Aceite; Filtro de aceite</div>
+              <div><strong>Líneas disponibles:</strong> Económica; VIP (Motul); Platinum (Liqui Moly)</div>
+              <div class="price">Precio: Cotización personalizada</div>
+            </div>
+            <div class="card-actions">
+              <a class="btn-outline" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20B%C3%81SICO%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR</a>
+            </div>
+          </article>
+
+          <!-- AIRE LIMPIO -->
+          <article class="card" role="listitem" aria-labelledby="pkg-aire">
+            <img src="img/aire-limpio.jpg" alt="Paquete Aire Limpio - Aceite, filtro aceite y filtro aire" onerror="this.style.display='none'">
+            <h4 id="pkg-aire">AIRE LIMPIO</h4>
+            <div class="desc">Para quienes buscan mantener la respiración del motor y la eficiencia.</div>
+            <div class="list">
+              <div><strong>Productos incluidos:</strong> Aceite; Filtro de aceite; Filtro de aire</div>
+              <div><strong>Líneas disponibles:</strong> Económica; VIP (Motul); Platinum (Liqui Moly)</div>
+              <div class="price">Precio: Cotización personalizada</div>
+            </div>
+            <div class="card-actions">
+              <a class="btn-outline" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20AIRE%20LIMPIO%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR</a>
+            </div>
+          </article>
+
+          <!-- CHISPA Y FILTROS -->
+          <article class="card" role="listitem" aria-labelledby="pkg-chispa">
+            <img src="img/chispa-filtros.jpg" alt="Paquete Chispa y Filtros - Aceite, filtros y bujías" onerror="this.style.display='none'">
+            <h4 id="pkg-chispa">CHISPA Y FILTROS</h4>
+            <div class="desc">Incluye elementos para mantener encendido y limpio el sistema de admisión y cabina.</div>
+            <div class="list">
+              <div><strong>Productos incluidos:</strong> Aceite; Filtro de aceite; Filtro de aire; Filtro de cabina; Bujías</div>
+              <div><strong>Líneas disponibles:</strong> Económica; VIP (Motul); Platinum (Liqui Moly)</div>
+              <div class="price">Precio: Cotización personalizada</div>
+            </div>
+            <div class="card-actions">
+              <a class="btn-outline" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20CHISPA%20Y%20FILTROS%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR</a>
+            </div>
+          </article>
+
+          <!-- MOTOR FRESCO (fila inferior, centrada) -->
+          <article class="card" role="listitem" aria-labelledby="pkg-motor">
+            <img src="img/motor-fresco.jpg" alt="Paquete Motor Fresco - Incluye limpiador de motor" onerror="this.style.display='none'">
+            <h4 id="pkg-motor">MOTOR FRESCO</h4>
+            <div class="desc">Paquete completo para limpieza y protección del motor.</div>
+            <div class="list">
+              <div><strong>Productos incluidos:</strong> Aceite; Filtro de aceite; Filtro de aire; Filtro de cabina; Bujías; Limpiador de motor</div>
+              <div><strong>Líneas disponibles:</strong> Económica; VIP (Motul); Platinum (Liqui Moly)</div>
+              <div class="price">Precio: Cotización personalizada</div>
+            </div>
+            <div class="card-actions">
+              <a class="btn-outline" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20MOTOR%20FRESCO%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR</a>
+            </div>
+          </article>
+
+          <!-- FILTROS EN ORDEN (fila inferior, centrada) -->
+          <article class="card" role="listitem" aria-labelledby="pkg-filtros">
+            <img src="img/filtros-orden.jpg" alt="Paquete Filtros en Orden - Mantén los filtros al día" onerror="this.style.display='none'">
+            <h4 id="pkg-filtros">FILTROS EN ORDEN</h4>
+            <div class="desc">Enfocado en mantener todos los filtros del vehículo en óptimas condiciones.</div>
+            <div class="list">
+              <div><strong>Productos incluidos:</strong> Aceite; Filtro de aceite; Filtro de aire; Filtro de cabina</div>
+              <div><strong>Líneas disponibles:</strong> Económica; VIP (Motul); Platinum (Liqui Moly)</div>
+              <div class="price">Precio: Cotización personalizada</div>
+            </div>
+            <div class="card-actions">
+              <a class="btn-outline" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20FILTROS%20EN%20ORDEN%20de%20Paquetes%20Jireh." target="_blank" rel="noopener">COTIZAR</a>
+            </div>
+          </article>
+        </div>
+
+      </section>
+
+      <!-- LINES -->
+      <section id="lineas" aria-labelledby="lineas-title">
+        <div class="section-header">
+          <div>
+            <h3 id="lineas-title">NUESTRAS LÍNEAS</h3>
+            <p class="muted">Elige el nivel de producto que mejor se adapte a tus necesidades y presupuesto.</p>
+          </div>
+        </div>
+
+        <div class="lines">
+          <div class="line">
+            <h4>LÍNEA ECONÓMICA</h4>
+            <div class="muted">Calidad que cuida tu bolsillo. Productos de menor costo con calidad suficiente para mantenimiento regular.</div>
+          </div>
+
+          <div class="line">
+            <h4>LÍNEA VIP</h4>
+            <div class="muted">Máximo desempeño y protección superior. Utiliza productos <strong>Motul</strong>.</div>
+          </div>
+
+          <div class="line">
+            <h4>LÍNEA PLATINUM</h4>
+            <div class="muted">Tecnología alemana y máxima protección. Utiliza productos <strong>Liqui Moly</strong>.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="muted">Nota: VIP = MOTUL; PLATINUM = LIQUI MOLY. No se intercambian marcas entre líneas.</div>
+      </section>
+
+      <!-- WHY JIREH -->
+      <section id="por-que-jireh" aria-labelledby="por-que-title">
+        <div class="section-header">
+          <div>
+            <h3 id="por-que-title">¿POR QUÉ JIREH?</h3>
+            <p class="muted">Beneficios claros y visibles para elegir Paquetes Jireh.</p>
+          </div>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit">
+            <h4>Ahorro</h4>
+            <div class="muted">Compra los productos y realiza el mantenimiento por tu cuenta para reducir costos.</div>
+          </div>
+
+          <div class="benefit">
+            <h4>Comodidad</h4>
+            <div class="muted">Recibe todo en tu domicilio y realiza el servicio cuando te convenga.</div>
+          </div>
+
+          <div class="benefit">
+            <h4>Productos de calidad</h4>
+            <div class="muted">Ofrecemos líneas con marcas reconocidas: Motul, Liqui Moly, Castrol, Mobil, Valvoline.</div>
+          </div>
+
+          <div class="benefit">
+            <h4>Diferentes niveles</h4>
+            <div class="muted">Línea Económica, VIP (Motul) y Platinum (Liqui Moly) para distintos presupuestos y necesidades.</div>
+          </div>
+
+          <div class="benefit">
+            <h4>Compra sencilla</h4>
+            <div class="muted">Proceso claro: elige paquete, línea, cotiza por WhatsApp y recibe tu pedido.</div>
+          </div>
+
+          <div class="benefit">
+            <h4>Atención personalizada</h4>
+            <div class="muted">Asesoría para elegir el aceite y productos adecuados según marca, modelo y motor.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TUTORIAL (nuevo) -->
+      <section id="tutorial" aria-labelledby="tutorial-title">
+        <div class="section-header">
+          <div>
+            <h3 id="tutorial-title">TUTORIAL PRÁCTICO</h3>
+            <p class="muted">Nosotros incluiremos un tutorial de cómo hacer tu cambio de aceite.</p>
+          </div>
+        </div>
+
+        <div class="tutorial">
+          <div class="box">
+            <div style="font-weight:800;margin-bottom:8px">Próximamente: tutorial paso a paso</div>
+            <div class="muted">En este espacio publicaremos un tutorial con instrucciones claras para realizar el cambio de aceite utilizando los productos de Paquetes Jireh. El tutorial estará diseñado para acompañarte durante el proceso y facilitar el mantenimiento por tu cuenta.</div>
+
+            <ul style="margin-top:12px;color:#334155">
+              <li style="margin-bottom:6px"><strong>Formato:</strong> guía visual y/o video (se publicará aquí cuando esté disponible).</li>
+              <li style="margin-bottom:6px"><strong>Acceso:</strong> los clientes recibirán información sobre el tutorial al cotizar por WhatsApp.</li>
+            </ul>
+
+            <div style="margin-top:12px">
+              <a class="cta-whatsapp" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20tutorial%20para%20hacer%20mi%20cambio%20de%20aceite." target="_blank" rel="noopener">QUIERO EL TUTORIAL</a>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="placeholder">Espacio para tutorial (video o guía)</div>
+            <div style="font-size:13px;color:#475569;margin-top:10px">Cuando el tutorial esté listo, aquí se mostrará el video o la guía paso a paso. Mientras tanto, solicita acceso por WhatsApp.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMERCIAL INFO -->
+      <section id="info-comercial" aria-labelledby="info-title">
+        <div class="section-header">
+          <div>
+            <h3 id="info-title">INFORMACIÓN COMERCIAL</h3>
+            <p class="muted">Condiciones, recomendaciones y cómo solicitarnos una cotización personalizada.</p>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div>
+            <table class="info-table" aria-label="Condiciones y recomendaciones">
+              <thead>
+                <tr><th>Concepto</th><th>Detalle</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Servicio</td><td>Venta de paquetes de productos para cambio de aceite; Paquetes Jireh NO realiza directamente el cambio de aceite como servicio de taller.</td></tr>
+                <tr><td>Cotización</td><td>Personalizada según marca, modelo, año y motor del vehículo.</td></tr>
+                <tr><td>Entrega</td><td>Entrega a domicilio. Tiempo y costo según ubicación.</td></tr>
+                <tr><td>Garantía</td><td>Productos 100% originales; garantía según fabricante.</td></tr>
+                <tr><td>Asesoría</td><td>Atención personalizada para elegir aceite y componentes adecuados.</td></tr>
+                <tr><td>Precios</td><td>Si no se indica precio, se mostrará "Cotización personalizada".</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="info-aside">
+            <div style="font-weight:800;margin-bottom:8px">Recomendación</div>
+            <div class="muted">Indícanos marca, modelo, año y tipo de motor para recibir una cotización precisa. Nosotros te asesoramos sobre la línea más adecuada.</div>
+
+            <div style="margin-top:12px">
+              <div class="tag">Productos 100% originales</div>
+            </div>
+
+            <div style="margin-top:12px">
+              <div style="font-weight:800">Contacto para cotizar</div>
+              <div class="muted">WhatsApp: <a href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes%20de%20Paquetes%20Jireh." target="_blank" rel="noopener" style="color:var(--azul)">5560879876</a></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" aria-labelledby="faq-title">
+        <div class="section-header">
+          <div>
+            <h3 id="faq-title">PREGUNTAS FRECUENTES</h3>
+            <p class="muted">Respuestas basadas en la información proporcionada.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <div class="accordion" id="accordion">
+            <div class="acc-item">
+              <button class="acc-btn" onclick="toggleAcc(this)" aria-expanded="false">¿Paquetes Jireh realiza el cambio de aceite?<span aria-hidden="true">+</span></button>
+              <div class="acc-panel">No. Paquetes Jireh ofrece los productos necesarios para que el cliente realice por sí mismo el mantenimiento/cambio de aceite. No se presta el servicio de taller.</div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-btn" onclick="toggleAcc(this)" aria-expanded="false">¿Cómo solicito una cotización?</button>
+              <div class="acc-panel">Envía por WhatsApp la marca, modelo, año y tipo de motor al número <strong>5560879876</strong> para recibir una cotización personalizada.</div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-btn" onclick="toggleAcc(this)" aria-expanded="false">¿Qué marcas manejan las líneas VIP y Platinum?</button>
+              <div class="acc-panel">La línea VIP utiliza productos Motul. La línea Platinum utiliza productos Liqui Moly. No se intercambian estas marcas entre líneas.</div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-btn" onclick="toggleAcc(this)" aria-expanded="false">¿Los precios están publicados?</button>
+              <div class="acc-panel">Los precios varían según vehículo; si no aparece un precio, se aplica "Cotización personalizada".</div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-btn" onclick="toggleAcc(this)" aria-expanded="false">¿Habrá un tutorial para hacer el cambio?</button>
+              <div class="acc-panel">Sí. Nosotros incluiremos un tutorial de cómo hacer tu cambio de aceite. Solicita acceso o más información por WhatsApp.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contacto" aria-labelledby="contacto-title">
+        <div class="section-header">
+          <div>
+            <h3 id="contacto-title">¿LISTO PARA HACER TU PROPIO CAMBIO DE ACEITE?</h3>
+            <p class="muted">Solicita información y cotización personalizada por WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="contact-cta">
+          <div class="left">
+            <div style="font-weight:800;font-size:18px">Escríbenos y mantén tu auto siempre al 100%</div>
+            <div class="muted" style="margin-top:6px">Indícanos marca, modelo, año y motor para una cotización precisa.</div>
+          </div>
+
+          <div>
+            <a class="cta-whatsapp" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20para%20mi%20veh%C3%ADculo." target="_blank" rel="noopener">COTIZAR POR WHATSAPP</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRANSCRIPCIÓN DEL DOCUMENTO (2 frases extraídas) -->
+      <section aria-labelledby="trans-title" style="padding-top:18px;padding-bottom:18px">
+        <div style="max-width:var(--max-width);margin:0 auto">
+          <h3 id="trans-title" style="color:#0b5fa5">Transcripción del documento</h3>
+          <p class="muted">"La idea del negocio es ofrecer al cliente los productos necesarios para realizar por sí mismo el mantenimiento/cambio de aceite de su vehículo."</p>
+          <p class="muted">"Paquetes Jireh NO realiza directamente el cambio de aceite como servicio de taller."</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/525560879876?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes%20de%20Paquetes%20Jireh." target="_blank" rel="noopener" aria-label="WhatsApp Paquetes Jireh">
